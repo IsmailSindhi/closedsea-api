@@ -1,17 +1,27 @@
 const mongoose = require('mongoose');
 
 const transectionSchema = new mongoose.Schema({
-    blockHash: {
+    Hash: {
         type: String,
         required: true,
     },
-    from: {
+    fromAddress: {
         type: String,
         required: true,
     },
-    to : {
+    toAddress : {
         type: String,
         required: true,
     },
-    gas: 
+    timeStamp: {
+        type: Date,
+        default: Date.now()
+    },
+    blockNum: {
+        type: Number,
+    },
+    total_burn: {
+        ammount : Float,
+        currencyName: String,
+    }
 })

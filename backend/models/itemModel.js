@@ -15,8 +15,8 @@ const productSchema = mongoose.Schema({
         required: [true,"Please Enter Product Price"],
         maxlength: [8,"Price can not exceed 8 charachters"],
     },
-    ratings: {
-        type: Number,
+    externalLink: {
+        type: String,
         default: 0,
     },
     images: [
@@ -31,14 +31,31 @@ const productSchema = mongoose.Schema({
             },
         },
     ],
-    category : {
+    Notforsale : {
+        type: Boolean,
+        default: false,
+    },
+    sellingPrice : {
+        type: Float,
+        required: true,
+    }
+    owner : {
         type: String,
-        required: [true,"Plese Enter Product Category"],
+        required: [ture, "Please define owner of NFT"]
     },
     createdAt: {
         type: Date,
         default: Date.now,
+    },
+    bids : [{
+        user: {
+            type: mongoose.Schema.ObjectID,
+            ref : "user"
+        },
+        ammountOfBid: Float,
+        currencyName: String,
     }
+    ],
 });
 
 module.exports = mongoose.model('Product', productSchema);
