@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const transectionSchema = new mongoose.Schema({
+const transactionSchema = new mongoose.Schema({
     Hash: {
         type: String,
         required: true,
@@ -24,4 +24,7 @@ const transectionSchema = new mongoose.Schema({
         ammount : Float,
         currencyName: String,
     }
-})
+});
+
+
+module.exports = mongoose.model('transaction', transactionSchema);

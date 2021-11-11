@@ -38,7 +38,7 @@ const productSchema = mongoose.Schema({
     sellingPrice : {
         type: Float,
         required: true,
-    }
+    },
     owner : {
         type: String,
         required: [ture, "Please define owner of NFT"]
@@ -58,4 +58,4 @@ const productSchema = mongoose.Schema({
     ],
 });
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('Item', productSchema);
